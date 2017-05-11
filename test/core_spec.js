@@ -84,7 +84,7 @@ describe('bounty logic', () => {
     });
 
 
-    describe('vote on two  entries', () => {
+    describe('vote on two entries', () => {
 
         it('contains a tally for the voted entry', () => {
             const state = Map({
