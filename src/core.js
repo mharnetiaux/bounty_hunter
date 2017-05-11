@@ -29,15 +29,24 @@ export function vote(state,entry){
 
 
 ////IMMUTABLE STATE FLOW
-let map = new Map,
-    a = set_entries(map,["Bobba","Squid-Face","Greedo"]),
-    b = next(a),
-    c = vote(b,"Bobba"),
-    object_cycle = [map,a,b,c];
+let state_map = new Map,
+    entries_to_state_map = set_entries(state_map,["Bobba","Squid-Face","Greedo"]),
+    grab_two_entries_from_map = next(entries_to_state_map),
+    vote_on_two_entries = vote(grab_two_entries_from_map,"Bobba"),
+
+    object_cycle = [
+        state_map,
+        entries_to_state_map,
+        grab_two_entries_from_map,
+        vote_on_two_entries
+    ];
 
 for(let i = 0; i < object_cycle.length; i++){
     console.log(object_cycle[i]);
 }
+
+
+
 
 
 
